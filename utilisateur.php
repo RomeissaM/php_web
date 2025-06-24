@@ -2,6 +2,10 @@
 // démarrer la session
 session_start();
 
+var_dump($_SERVER);
+//   'REQUEST_METHOD' => string 'GET' (length=3)
+//   'HTTP_REFERER' => string 'http://localhost/php-web/' (length=25)
+
 $username = "Doe";
 if ($_REQUEST['username'] != "") {
   $username = $_REQUEST['username'];
