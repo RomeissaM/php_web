@@ -1,4 +1,7 @@
 <?php
+// démarrer la session
+session_start();
+
 $username = "Doe";
 if ($_REQUEST['username'] != "") {
   $username = $_REQUEST['username'];
@@ -10,6 +13,11 @@ if (isset($_REQUEST['genre']) and $_REQUEST['genre'] == 'homme') {
   $genre = "monsieur";
 };
 
+// ajouter un cookie = stocker dans la machine client
+setcookie("nom", $username);
+
+// ajouter des données dans la session = stocker sur le serveur
+$_SESSION['nom'] = $username;
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +42,7 @@ if (isset($_REQUEST['genre']) and $_REQUEST['genre'] == 'homme') {
     // echo $genre == "homme" ? "Monsieur " : "Madame ";
     echo "$genre $username, vous avez $age ans et êtes de $ville"
     ?>
+    <a href="test.php">Consulter les cookies et les sessions</a>
   </p>
 </body>
 
